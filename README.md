@@ -58,3 +58,11 @@ To make this mount permanent
 adnan@adnan-media:/mnt/data$ sudo nano /etc/fstab
 Add following line in the file
 /dev/sda1	/mnt/data	ext4	defaults,nofail	0	0
+
+verify it with following command
+adnan@adnan-media:~$ sudo findmnt --verify
+none
+   [W] non-bind mount source /swap.img is a directory or regular file
+   [W] your fstab has been modified, but systemd still uses the old version;
+       use 'systemctl daemon-reload' to reload
+0 parse errors, 0 errors, 2 warnings
