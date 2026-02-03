@@ -4,11 +4,12 @@ It contains different services for media server on linux in docker
 # Portainer
 It is a lightweight service for manage Docker, Containers
 https://hub.docker.com/r/portainer/portainer-ce
-http://192.168.18.200:9000
+url = http://192.168.18.200:9000
 
 # Filebrowser
 It provides a file managing interface in web browser
 https://hub.docker.com/r/filebrowser/filebrowser
+url = http://192.168.18.200:8095
 
 get password from this container's log
 adnan@adnan-media:~/docker-media-server$ docker container ls
@@ -38,7 +39,6 @@ Note:-
 adnan@adnan-media:~/docker$ sudo chmod 777 -R /mnt/data
 So files can be moved easily
 
-
 # Mount media directory
 adnan@adnan-media:~/docker$ sudo chmod 777 -R /mnt
 find out the media hard disk attached 
@@ -66,3 +66,21 @@ none
    [W] your fstab has been modified, but systemd still uses the old version;
        use 'systemctl daemon-reload' to reload
 0 parse errors, 0 errors, 2 warnings
+
+# Transmission
+A Fast, Easy and Free Bittorrent Client For macOS, Windows and Linux
+url = http://192.168.18.200:9091
+
+run this command so transmission can easily access files without issue
+adnan@adnan-media:~/docker$ sudo chmod 777 -R /temp-downloads
+
+Install transmission app in android to easy access and give this url and your select username and password
+when added a torrent in transmission add destination folder as "/downloads/complete/movies" for movies and "/downloads/complete/series" for series, this will help jellyfin the figure out where to show which video
+
+# Jellyfin
+Jellyfin is the volunteer-built media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
+url = http://192.168.18.200:8096/web/#/home
+Add new user password
+Add library Movies for path /mnt/data/media/movies
+Add library Series for path /mnt/data/media/series
+
