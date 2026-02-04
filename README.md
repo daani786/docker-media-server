@@ -84,3 +84,6 @@ Add new user password
 Add library Movies for path /mnt/data/media/movies
 Add library Series for path /mnt/data/media/series
 
+Plugins
+- Open subtitles
+
