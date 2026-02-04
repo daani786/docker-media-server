@@ -4,7 +4,7 @@ It contains different services for media server on linux in docker
 # Portainer
 It is a lightweight service for manage Docker, Containers
 https://hub.docker.com/r/portainer/portainer-ce
-url = http://192.168.18.200:9000
+url = http://192.168.18.200:9443
 
 # Filebrowser
 It provides a file managing interface in web browser
