@@ -1,1 +1,6 @@
+**/-bk
+**_bk*
 /.env
+/transmission
+/filebrowser/filebrowser.db
+filebrowser/filebrowser_bk1.db
