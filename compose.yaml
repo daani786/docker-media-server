@@ -1,0 +1,81 @@
+services:
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: always
+    volumes:
+      - portainer_data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9443:9443
+    # networks:
+    #   media-apps:
+    #     ipv4_address: 192.168.100.1
+
+  ### filebrowser ###
+  # filebrowser:
+  #   container_name: filebrowser
+  #   image: filebrowser/filebrowser
+  #   restart: always
+  #   volumes:
+  #     - /:/srv #change user to your name or use ~/
+  #     - ${FB_DB_PATH}:/database.db #create the filebrowser.db file before deploying
+  #   ports:
+  #     - ${FB_WEBUI_PORT}:80
+  #   user: ${UID}:${GID}
+  #   # networks:
+  #   #   media-apps:
+  #   #     ipv4_address: 192.168.100.2
+
+  # ### transmission ###
+  # transmission:
+  #   container_name: transmission
+  #   image: lscr.io/linuxserver/transmission:latest
+  #   restart: unless-stopped
+  #   volumes:
+  #     - ${TR_CONFIG_PATH}:/config
+  #     - ${TR_INCOMPLETE_PATH}:/downloads/incomplete #optional
+  #     - ${ALL_MEDIA_PATH}:/downloads/complete
+  #   ports:
+  #     - 9091:9091
+  #     - 51413:51413
+  #     - 51413:51413/udp
+  #   environment:
+  #     - PUID=${UID}
+  #     - PGID=${GID}
+  #     - TZ=${TZ}
+  #     - TRANSMISSION_WEB_HOME= #optional
+  #     - USER=${TR_USERNAME} #optional
+  #     - PASS=${TR_PASSWORD} #optional
+  #     - WHITELIST= #optional
+  #     - PEERPORT= #optional
+  #     - HOST_WHITELIST= #optional
+  #   # networks:
+  #   #   media-apps:
+  #   #     ipv4_address: 192.168.100.2
+
+  # ### jellyfin ###
+  # jellyfin:
+  #   image: jellyfin/jellyfin
+  #   container_name: jellyfin
+  #   network_mode: host
+  #   restart: always
+  #   volumes:
+  #     - ${JF_CONFIG_PATH}:/config
+  #     - ${JF_CACHE_PATH}:/cache
+  #     - type: bind
+  #       source: ${ALL_MEDIA_PATH}
+  #       target: /media
+  #   # networks:
+  #   #   media-apps:
+  #   #     ipv4_address: 192.168.100.3
+
+volumes:
+  portainer_data:
+
+networks:
+  media-apps:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.100.0/24
