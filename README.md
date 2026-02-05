@@ -36,12 +36,10 @@ http://192.168.18.200:8095
 change the password in Settings -> User Management -> edit user
 create new user say test => test123
 
-Note:-
-adnan@adnan-media:~/docker$ sudo chmod 777 -R /mnt/data
-So files can be moved easily
-
 # Mount media directory
 adnan@adnan-media:~/docker$ sudo chmod 777 -R /mnt
+adnan@adnan-media:/mnt$ mkdir data
+adnan@adnan-media:/mnt$ sudo chmod 777 -R /mnt/data
 find out the media hard disk attached 
 adnan@adnan-media:/mnt/data/media$ lsblk
 NAME                      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS

@@ -27,32 +27,32 @@ services:
     #   media-apps:
     #     ipv4_address: 192.168.100.2
 
-  # ### transmission ###
-  # transmission:
-  #   container_name: transmission
-  #   image: lscr.io/linuxserver/transmission:latest
-  #   restart: unless-stopped
-  #   volumes:
-  #     - ${TR_CONFIG_PATH}:/config
-  #     - ${TR_INCOMPLETE_PATH}:/downloads/incomplete #optional
-  #     - ${ALL_MEDIA_PATH}:/downloads/complete
-  #   ports:
-  #     - 9091:9091
-  #     - 51413:51413
-  #     - 51413:51413/udp
-  #   environment:
-  #     - PUID=${UID}
-  #     - PGID=${GID}
-  #     - TZ=${TZ}
-  #     - TRANSMISSION_WEB_HOME= #optional
-  #     - USER=${TR_USERNAME} #optional
-  #     - PASS=${TR_PASSWORD} #optional
-  #     - WHITELIST= #optional
-  #     - PEERPORT= #optional
-  #     - HOST_WHITELIST= #optional
-  #   # networks:
-  #   #   media-apps:
-  #   #     ipv4_address: 192.168.100.2
+  ### transmission ###
+  transmission:
+    container_name: transmission
+    image: lscr.io/linuxserver/transmission:latest
+    restart: unless-stopped
+    volumes:
+      - ${TR_CONFIG_PATH}:/config
+      - ${TR_INCOMPLETE_PATH}:/downloads/incomplete #optional
+      - ${ALL_MEDIA_PATH}:/downloads/complete
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    environment:
+      - PUID=${UID}
+      - PGID=${GID}
+      - TZ=${TZ}
+      - TRANSMISSION_WEB_HOME= #optional
+      - USER=${TR_USERNAME} #optional
+      - PASS=${TR_PASSWORD} #optional
+      - WHITELIST= #optional
+      - PEERPORT= #optional
+      - HOST_WHITELIST= #optional
+    # networks:
+    #   media-apps:
+    #     ipv4_address: 192.168.100.2
 
   # ### jellyfin ###
   # jellyfin:
