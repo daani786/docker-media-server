@@ -71,6 +71,7 @@ A Fast, Easy and Free Bittorrent Client For macOS, Windows and Linux
 url = http://192.168.18.200:9091
 
 run this command so transmission can easily access files without issue
+adnan@adnan-media:~/docker$ sudo chmod 777 -R /home/adnan/docker-media-server
 adnan@adnan-media:~/docker$ sudo chmod 777 -R /temp-downloads
 
 Install transmission app in android to easy access and give this url and your select username and password
