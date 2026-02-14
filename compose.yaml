@@ -70,6 +70,27 @@ services:
     #   media-apps:
     #     ipv4_address: 192.168.100.3
 
+  ### ariang ###
+  ariang:
+    image: hurlenko/aria2-ariang
+    container_name: ariang
+    ports:
+      - 443:8080
+    volumes:
+      - ${AG_CONFIG_PATH}:/aria2/conf
+      - ${ALL_MEDIA_PATH}:/aria2/data
+    environment:
+      - PUID=${UID}
+      - PGID=${GID}
+      - RPC_SECRET=${AG_SECRET}
+      - ARIA2RPCPORT=443
+      - BASIC_AUTH_USERNAME=${AG_USERNAME}
+      - BASIC_AUTH_PASSWORD=${AG_PASSWORD}
+    restart: always
+    # networks:
+    #   media-apps:
+    #     ipv4_address: 192.168.100.5
+
 volumes:
   portainer_data:
 

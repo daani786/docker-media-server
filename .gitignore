@@ -4,3 +4,4 @@
 /transmission
 /filebrowser/filebrowser.db
 filebrowser/filebrowser_bk1.db
+*.code-workspace

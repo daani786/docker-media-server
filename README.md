@@ -86,4 +86,6 @@ Add library Series for path /mnt/data/media/series
 
 Plugins
 - Open subtitles
+- jellyfin-plugin-auto-collections
+-- https://github.com/KeksBombe/jellyfin-plugin-auto-collections
 
