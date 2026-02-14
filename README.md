@@ -89,3 +89,14 @@ Plugins
 - jellyfin-plugin-auto-collections
 -- https://github.com/KeksBombe/jellyfin-plugin-auto-collections
 
+# ariang
+AriaNg is a modern, web-based frontend designed to make the aria2 command-line download utility easier to use
+url = http://192.168.18.200:443
+popup will ask for username password
+use user (AG_USERNAME) and password (AG_PASSWORD) from .env file
+click on AriaNg Settings -> RPC (192.168.18.200:443)
+Add value AG_SECRET from .env in field "Aria2 RPC Secret Token"
+Add new link to download the file
+
+
+
