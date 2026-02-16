@@ -2,6 +2,8 @@
 **_bk*
 /.env
 /transmission
+/filebrowser
 /filebrowser/filebrowser.db
-filebrowser/filebrowser_bk1.db
+/filebrowser/filebrowser_bk1.db
+/aria2
 *.code-workspace
