@@ -11,7 +11,7 @@ setup password at first run
 It provides a file managing interface in web browser
 https://hub.docker.com/r/filebrowser/filebrowser
 url = http://192.168.18.200:8095
-
+----------------------------------------------------------------------
 get password from this container's log
 adnan@adnan-media:~/docker-media-server$ docker container ls
 
@@ -29,7 +29,7 @@ adnan@adnan-media:~/docker-media-server$ docker container logs b2b9e7758195
 2026/02/02 16:10:02 User 'admin' initialized with randomly generated password: tzWScy33ggSKiM1K
 2026/02/02 16:10:02 Listening on [::]:80
 adnan@adnan-media:~/docker-media-server$
-
+----------------------------------------------------------------------
 
 use this password to login
 http://192.168.18.200:8095
@@ -98,5 +98,40 @@ click on AriaNg Settings -> RPC (192.168.18.200:443)
 Add value AG_SECRET from .env in field "Aria2 RPC Secret Token"
 Add new link to download the file
 
+# qbittorrent
+The qBittorrent project aims to provide an open-source software alternative to µTorrent.
+url = http://192.168.18.200:8080
+open qbittorrent in browser from url above
+----------------------------------------------------------------------
+get password from this container's log
+adnan@adnan-media:~/docker-media-server$ docker container ls
 
+CONTAINER ID   IMAGE
+22b396d698bd   lscr.io/linuxserver/qbittorrent:latest
 
+adnan@adnan-media:~/docker-media-server$ docker container logs 22b396d698bd
+[custom-init] No custom files found, skipping...
+WebUI will be started shortly after internal preparations. Please wait...
+
+******** Information ********
+To control qBittorrent, access the WebUI at: http://localhost:8080
+The WebUI administrator username is: admin
+The WebUI administrator password was not set. A temporary password is provided for this session: bjzfv7UjJ
+You should set your own password in program preferences.
+Connection to localhost (::1) 8080 port [tcp/http-alt] succeeded!
+[ls.io-init] done.
+----------------------------------------------------------------------
+use above password to login into qBittorrent
+when interface loaded
+click on setting icon to open options
+goto webui tab
+in Authentication section, change the password to test123
+switch on the option "Bypass authentication for clients on localhost"
+goto downloads tab
+switch on the "Keep incomplete torrents in:" with value = "/downloads/incomplete"
+click save
+logout qbittorrent and login again with new password
+
+add permissions otherwise you will get error when running torrent in qbittorrent
+adnan@adnan-media:/$ sudo chmod 777 -R /temp-downloads
+#adnan@adnan-media:/$ sudo chmod 777 -R /temp-downloads/qbittorrent
