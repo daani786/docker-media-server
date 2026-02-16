@@ -91,6 +91,28 @@ services:
     #   media-apps:
     #     ipv4_address: 192.168.100.5
 
+  ### ariang ###
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      - PUID=${UID}
+      - PGID=${GID}
+      - TZ=${TZ}
+      - WEBUI_PORT=${QBT_WEBUI_PORT}
+      - TORRENTING_PORT=6881
+    volumes:
+      - ${QBT_CONFIG_PATH}:/config
+      - ${QBT_DOWNLOADS_PATH}:/downloads/incomplete
+      - ${ALL_MEDIA_PATH}:/downloads
+    ports:
+      - ${QBT_WEBUI_PORT}:${QBT_WEBUI_PORT}
+      - 6881:6881
+      - 6881:6881/udp
+    restart: unless-stopped
+    # networks:
+    #   media-apps:
+    #     ipv4_address: 192.168.100.6
 volumes:
   portainer_data:
 
