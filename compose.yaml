@@ -10,7 +10,7 @@ services:
       - 9443:9443
     networks:
       media-apps:
-        ipv4_address: 192.168.100.1
+        ipv4_address: 192.168.100.2
 
   ## filebrowser ###
   filebrowser:
@@ -25,7 +25,7 @@ services:
     user: ${UID}:${GID}
     networks:
       media-apps:
-        ipv4_address: 192.168.100.2
+        ipv4_address: 192.168.100.3
 
   ### transmission ###
   transmission:
@@ -52,7 +52,7 @@ services:
       - HOST_WHITELIST= #optional
     networks:
       media-apps:
-        ipv4_address: 192.168.100.3
+        ipv4_address: 192.168.100.4
 
   ### jellyfin ###
   jellyfin:
@@ -68,7 +68,7 @@ services:
         target: /media
     # networks:
     #   media-apps:
-    #     ipv4_address: 192.168.100.4
+    #     ipv4_address: 192.168.100.5
 
   ### ariang ###
   ariang:
@@ -89,7 +89,7 @@ services:
     restart: always
     networks:
       media-apps:
-        ipv4_address: 192.168.100.5
+        ipv4_address: 192.168.100.6
 
   ### ariang ###
   qbittorrent:
@@ -112,7 +112,7 @@ services:
     restart: unless-stopped
     networks:
       media-apps:
-        ipv4_address: 192.168.100.6
+        ipv4_address: 192.168.100.7
 
   ### radarr ###
   radarr:
@@ -131,7 +131,7 @@ services:
     restart: unless-stopped
     networks:
       media-apps:
-        ipv4_address: 192.168.100.7
+        ipv4_address: 192.168.100.8
 
   ### sonarr ###
   sonarr:
@@ -150,7 +150,7 @@ services:
     restart: unless-stopped
     networks:
       media-apps:
-        ipv4_address: 192.168.100.8
+        ipv4_address: 192.168.100.9
 
   ### bazarr ###
   bazarr:
@@ -169,7 +169,7 @@ services:
     restart: unless-stopped
     networks:
       media-apps:
-        ipv4_address: 192.168.100.9
+        ipv4_address: 192.168.100.10
 
   ### prowlarr ###
   prowlarr:
@@ -186,7 +186,7 @@ services:
     restart: unless-stopped
     networks:
       media-apps:
-        ipv4_address: 192.168.100.10
+        ipv4_address: 192.168.100.11
 
   ### flaresolverr ###
   flaresolverr:
@@ -206,7 +206,7 @@ services:
     restart: unless-stopped
     networks:
       media-apps:
-        ipv4_address: 192.168.100.11
+        ipv4_address: 192.168.100.12
 
 volumes:
   portainer_data:
