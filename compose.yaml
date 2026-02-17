@@ -66,9 +66,9 @@ services:
       - type: bind
         source: ${ALL_MEDIA_PATH}
         target: /media
-    networks:
-      media-apps:
-        ipv4_address: 192.168.100.4
+    # networks:
+    #   media-apps:
+    #     ipv4_address: 192.168.100.4
 
   ### ariang ###
   ariang:
