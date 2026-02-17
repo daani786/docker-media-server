@@ -86,8 +86,15 @@ Add library Series for path /mnt/data/media/series
 
 Plugins
 - Open subtitles
+- TheTVDB
 - jellyfin-plugin-auto-collections
 -- https://github.com/KeksBombe/jellyfin-plugin-auto-collections
+-- In Jellyfin, go to Dashboard -> Plugins -> Catalog
+-- Add repository: @KeksBombe (Auto Collections)
+-- Repository URL: https://raw.githubusercontent.com/KeksBombe/jellyfin-plugin-auto-collections/refs/heads/main/manifest.json
+-- Click "Save"
+-- Search for "Auto Collections" and install
+-- Restart Jellyfin
 
 # ariang
 AriaNg is a modern, web-based frontend designed to make the aria2 command-line download utility easier to use
@@ -135,3 +142,16 @@ logout qbittorrent and login again with new password
 add permissions otherwise you will get error when running torrent in qbittorrent
 adnan@adnan-media:/$ sudo chmod 777 -R /temp-downloads
 #adnan@adnan-media:/$ sudo chmod 777 -R /temp-downloads/qbittorrent
+
+
+# prowlarr
+Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
+url = http://192.168.18.200:9696
+open qbittorrent in browser from url above
+Authentication Required form will open
+Authentication Method = Forms (Login Page)
+Authentication Required = enabled
+Username = test
+Password = test123
+fill the above values and press save
+
