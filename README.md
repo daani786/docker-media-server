@@ -81,6 +81,8 @@ when added a torrent in transmission add destination folder as "/downloads/compl
 Jellyfin is the volunteer-built media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
 url = http://192.168.18.200:8096/web/#/home
 Add new user password
+
+Before Add libraries install plugins
 Add library Movies for path /mnt/data/media/movies
 Add library Series for path /mnt/data/media/series
 
@@ -144,14 +146,190 @@ adnan@adnan-media:/$ sudo chmod 777 -R /temp-downloads
 #adnan@adnan-media:/$ sudo chmod 777 -R /temp-downloads/qbittorrent
 
 
+# flaresolverr
+url = http://192.168.18.200:8191
+open url and check response
+{"msg": "FlareSolverr is ready!", "version": "3.4.6", "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36"}
+
 # prowlarr
 Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Sonarr, Radarr, Lidarr, and Readarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
 url = http://192.168.18.200:9696
-open qbittorrent in browser from url above
+open url in browser
 Authentication Required form will open
 Authentication Method = Forms (Login Page)
 Authentication Required = enabled
-Username = test
+Username = admin
 Password = test123
 fill the above values and press save
 
+go to Settings -> Indexer Proxies
+click on plus icon to add "Add Indexer Proxy"
+click on FlareSolverr
+Name = FlareSolverr
+Tags = flare
+Host = http://flaresolverr:8191/
+click on test, and see if test button shows a green tick
+save indexerr
+
+go to Indexers
+click on Add Indexer
+select a public indexer, e.g. xxxx
+popup will open
+Name = xxxx
+Enable = true
+Redirect = 
+Sync Profile = Standard
+Base url = https://xxxx.xx/
+Seed Ratio = 1
+Filter by Uploader = 
+Download link = 
+Download link (fallback) = 
+Disable sorting = 
+Sort requested from site = 
+Order requested from site = 
+Tags = flare
+click on test, and see if test button shows a green tick
+save 
+
+go to Settings -> Apps
+click on add application
+popup will show, select Radarr
+Name = Radarr
+Sync Level = Full Sync
+Tags = flare
+Prowlarr Server = http://prowlarr:9696
+Radarr Server = http://radarr:7878
+API Key = get api key from radarr application
+click on test, and see if test button shows a green tick
+save 
+
+go to Indexers
+click on Add Indexer
+select a public indexer, e.g. xxxx
+popup will open
+Name = xxxx
+Enable = true
+Redirect = 
+Sync Profile = Standard
+Base url = https://xxxx.xx/
+Seed Ratio = 1
+Filter by Uploader = 
+Download link = 
+Download link (fallback) = 
+Disable sorting = 
+Sort requested from site = 
+Order requested from site = 
+Tags = flare
+click on test, and see if test button shows a green tick
+save 
+
+go to Settings -> Apps
+click on add application
+popup will show, select Sonarr
+Name = Sonarr
+Sync Level = Full Sync
+Tags = flare
+Prowlarr Server = http://prowlarr:9696
+Radarr Server = http://sonarr:8989
+API Key = get api key from radarr application
+click on test, and see if test button shows a green tick
+save 
+
+# radarr
+url = http://192.168.18.200:7878/
+open url in browser
+Authentication Required form will open
+Authentication Method = Forms (Login Page)
+Authentication Required = enabled
+Username = admin
+Password = test123
+fill the above values and press save
+
+go to settings -> general
+look for api key say xxxxxxxxxxxxxxxx
+we will use this api key in prowlarr
+
+go to settings -> Media Management
+under root folders section click add root folder for movies
+in my case root folder will be = /movies/
+Rename Movies = true
+click on save changes
+
+go to settings -> download clients
+click on add button
+select qBittorrent
+popup will open
+Name = qBittorrent
+Enable = true
+Host = qbittorrent
+Port = 8080
+Use SSL = check off
+Username = admin 
+Password = test123
+Category = movies
+click on test, and see if test button shows a green tick
+save 
+
+go to movies
+add new
+search for a movie say the mummy
+popup will open
+select root folder will already selected
+monitor = movie only
+minimum availability = released
+quality profile = select a quality of movie you want to download
+tags = leave it empty
+start search for missing movie check box switch on
+and click add movie
+the movie will be added in the list
+the movie will also be added in the qbittorrent to download
+check and confirm qbittorrent
+
+# sonarr
+url = http://192.168.18.200:8989/
+open url in browser
+Authentication Required form will open
+Authentication Method = Forms (Login Page)
+Authentication Required = enabled
+Username = admin
+Password = test123
+fill the above values and press save
+
+go to settings -> general
+look for api key say xxxxxxxxxxxxxxxx
+we will use this api key in prowlarr
+
+go to settings -> Media Management
+under root folders section click add root folder for movies
+in my case root folder will be = /downloads/series
+Rename Movies = true
+click on save changes
+
+go to settings -> download clients
+click on add button
+select qBittorrent
+popup will open
+Name = qBittorrent
+Enable = true
+Host = qbittorrent
+Port = 8080
+Use SSL = check off
+Username = admin 
+Password = test123
+Category = movies
+click on test, and see if test button shows a green tick
+save 
+
+go to series
+add new
+search for a series say star fleet
+popup will open
+select root folder will already selected
+monitor = missing episodes
+quality profile = select a quality of movie you want to download
+tags = leave it empty
+start search for missing episodes check box switch on
+and click add series
+the series will be added in the list
+the series will also be added in the qbittorrent to download
+check and confirm qbittorrent
