@@ -1,16 +1,4 @@
 services:
-  portainer:
-    container_name: portainer
-    image: portainer/portainer-ce:latest
-    restart: always
-    volumes:
-      - portainer_data:/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 9443:9443
-    networks:
-      media-apps:
-        ipv4_address: 192.168.100.2
 
   ## filebrowser ###
   filebrowser:
@@ -207,9 +195,6 @@ services:
     networks:
       media-apps:
         ipv4_address: 192.168.100.12
-
-volumes:
-  portainer_data:
 
 networks:
   media-apps:
