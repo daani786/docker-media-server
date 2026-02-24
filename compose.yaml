@@ -51,9 +51,7 @@ services:
     volumes:
       - ${JF_CONFIG_PATH}:/config
       - ${JF_CACHE_PATH}:/cache
-      - type: bind
-        source: ${ALL_MEDIA_PATH}
-        target: /media
+      - ${ALL_MEDIA_PATH}:/media
     # networks:
     #   media-apps:
     #     ipv4_address: 192.168.100.5
