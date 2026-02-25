@@ -77,7 +77,7 @@ services:
       media-apps:
         ipv4_address: 192.168.100.6
 
-  ### ariang ###
+  ### qbittorrent ###
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
@@ -90,7 +90,7 @@ services:
     volumes:
       - ${QBT_CONFIG_PATH}:/config
       - ${QBT_DOWNLOADS_INCOMPLETE_PATH}:/downloads/incomplete
-      - ${QBT_DOWNLOADS_PATH}:/downloads
+      - ${QBT_DOWNLOADS_PATH}:/data/downloads
     ports:
       - ${QBT_WEBUI_PORT}:${QBT_WEBUI_PORT}
       - 6881:6881
@@ -111,7 +111,7 @@ services:
     volumes:
       - ${RD_CONFIG_PATH}:/config
       - ${RD_MOVIES_PATH}:/movies #optional
-      - ${RD_CLIENT_DOWNLOADS_PATH}:/downloads #optional
+      - ${RD_CLIENT_DOWNLOADS_PATH}:/data #optional
     ports:
       - ${RD_WEBUI_PORT}:${RD_WEBUI_PORT}
     restart: unless-stopped
@@ -130,7 +130,7 @@ services:
     volumes:
       - ${SO_CONFIG_PATH}:/config
       - ${SO_TV_PATH}:/tv #optional
-      - ${SO_CLIENT_DOWNLOADS_PATH}:/downloads #optional
+      - ${SO_CLIENT_DOWNLOADS_PATH}:/data #optional
     ports:
       - ${SO_WEBUI_PORT}:${SO_WEBUI_PORT}
     restart: unless-stopped

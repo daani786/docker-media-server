@@ -316,7 +316,7 @@ Port = 8080
 Use SSL = check off
 Username = admin 
 Password = test123
-Category = movies
+Category = series
 click on test, and see if test button shows a green tick
 save 
 
