@@ -199,6 +199,22 @@ services:
       media-apps:
         ipv4_address: 192.168.100.12
 
+  ### homarr ###
+  homarr:
+    image: ghcr.io/homarr-labs/homarr:latest
+    container_name: homarr
+    environment:
+      - SECRET_ENCRYPTION_KEY=${HR_SECRET_ENCRYPTION_KEY}
+    ports:
+      - 7575:7575
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # Optional, only if you want docker integration
+      - ${COMMON_CONFIG_PATH}/homarr:/appdata
+    restart: unless-stopped
+    networks:
+      media-apps:
+        ipv4_address: 192.168.100.13
+
 networks:
   media-apps:
     ipam:
