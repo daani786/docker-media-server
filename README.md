@@ -333,3 +333,21 @@ and click add series
 the series will be added in the list
 the series will also be added in the qbittorrent to download
 check and confirm qbittorrent
+
+# homarr
+url = http://192.168.18.200:7575/
+open url in browser
+select start from scratch
+add admin user and password
+Username = admin
+Password = Test123!@#
+create your first board
+page will open http://192.168.18.200:7575/manage/boards
+click on new board
+popup will appear
+Add board name say AdnanLaptop
+select column count say 10
+select public optional
+and click create
+
+
